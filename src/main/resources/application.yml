@@ -1,0 +1,21 @@
+---
+
+spring:
+  profiles:
+    active: local
+    
+server:
+  port: 8081
+  
+
+---
+
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/native-config
+         
