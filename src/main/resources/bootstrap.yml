@@ -1,0 +1,16 @@
+---
+
+spring:
+  profiles: local
+  
+encrypt:
+  key: local-key 
+   
+---
+ 
+spring:
+  profiles: cloud
+ 
+encrypt: 
+  key: ${vcap.services.encryption-key.credentials.key}      
+    

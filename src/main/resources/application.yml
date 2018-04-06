@@ -1,18 +1,14 @@
 ---
 
 spring:
-  profiles:
-    active: local
-    
+  profiles: local    
 server:
   port: 8081
-  
 
 ---
 
 spring:
-  profiles:
-    active: native
+  profiles: native
   cloud:
     config:
       server:
@@ -22,12 +18,16 @@ spring:
 ---
 
 spring:
-  profiles:
-    active: cloud
+  profiles: cloud
   cloud:
     config:
       server:
         git:
-          uri: ${vcap.services.config-repo.uri}
-          username: ${vcap.services.config-repo.username}
-          password: ${vcap.services.config-repo.password}   
+          uri: ${vcap.services.config-repo.credentials.uri}
+          username: ${vcap.services.config-repo.credentials.username}
+          password: ${vcap.services.config-repo.credentials.password} 
+  security:
+    user:
+      name: ${vcap.services.basic-auth.credentials.username}
+      password: ${vcap.services.basic-auth.credentials.password}
+     
