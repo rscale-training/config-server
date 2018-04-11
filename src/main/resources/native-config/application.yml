@@ -4,7 +4,18 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8082/eureka
-
 feign:
   hystrix:
     enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh, hystrix.stream'
+  endpoint:
+    refresh:
+      enabled: true
+      
+message: 'Hi from the config server'      
+    
