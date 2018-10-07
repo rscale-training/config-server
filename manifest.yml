@@ -6,10 +6,7 @@ applications:
   instances: 1
   buildpack: java_buildpack
   path: build/libs/config-server.jar
-  routes:
-  - route: boston-config.cfapps.io
   services:
   - config-repo
   - basic-auth
   - encryption-key
-  
